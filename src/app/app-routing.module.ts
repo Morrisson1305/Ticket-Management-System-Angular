@@ -5,7 +5,7 @@ import { UserDashboardComponent } from './component/user-dashboard/user-dashboar
 import { AuthGuard } from './services/authguard.service';
 import { TicketComponent } from './component/ticket/ticket.component';
 import { ProfileComponent } from './component/profile/profile.component';
-import { ManagerUserComponent } from './component/manager-user/manager-user.component';
+import { ManagerUserComponent } from './component/manage-user/manager-user.component';
 
 const routes: Routes = [
   {path: '', component: UserDashboardComponent},

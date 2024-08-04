@@ -16,7 +16,8 @@ import { FooterComponent } from './component/footer/footer.component';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { CreateTicketModalComponent } from './create-ticket-modal/create-ticket-modal.component';
 import { ProfileComponent } from './component/profile/profile.component';
-import { ManagerUserComponent } from './component/manager-user/manager-user.component';
+import { ManagerUserComponent } from './component/manage-user/manager-user.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ManagerUserComponent } from './component/manager-user/manager-user.comp
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [TicketService, UserService,
    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
