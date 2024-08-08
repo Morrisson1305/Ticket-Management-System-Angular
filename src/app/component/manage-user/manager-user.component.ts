@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faTrash, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faPencilAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-manager-user',
@@ -10,5 +10,6 @@ export class ManagerUserComponent {
 
 trashIcon = faTrash;
 pencilIcon = faPencilAlt;
+plusIcon = faPlus;
 
 }
