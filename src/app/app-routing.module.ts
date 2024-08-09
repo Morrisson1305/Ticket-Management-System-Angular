@@ -11,10 +11,10 @@ const routes: Routes = [
   {path: '', component: UserDashboardComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'manage-user', component: ManagerUserComponent},
-  {path: 'tickets', component: TicketComponent},
+  {path: 'manage-users', component: ManagerUserComponent},
+  {path: 'manage-tickets', component: TicketComponent},
   // {path: 'tickets', component: TicketComponent, canActivate: [AuthGuard] },
-  {path: '**', redirectTo: 'login'}
+  //{path: '**', redirectTo: 'login'}
 
 ];
 

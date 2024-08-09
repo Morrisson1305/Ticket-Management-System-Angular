@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Ticket } from '../../interface/ticket';
 import { TicketService } from '../../services/ticket.service';
 import { AuthService } from '../../services/auth.service';
+import { faTrash, faPencilAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-ticket',
@@ -9,6 +10,10 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './ticket.component.css'
 })
 export class TicketComponent implements OnInit{
+
+  trashIcon = faTrash;
+  pencilIcon = faPencilAlt;
+  plusIcon = faPlus;
 
   tickets: Ticket[] = [];
   filteredTickets: Ticket[] = [];
