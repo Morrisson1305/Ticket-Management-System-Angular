@@ -6,6 +6,7 @@ import { AuthGuard } from './services/authguard.service';
 import { TicketComponent } from './component/ticket/ticket.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { ManagerUserComponent } from './component/manage-user/manager-user.component';
+import { ManageTicketComponent } from './component/manage-ticket/manage-ticket.component';
 
 const routes: Routes = [
   {path: '', component: UserDashboardComponent},
