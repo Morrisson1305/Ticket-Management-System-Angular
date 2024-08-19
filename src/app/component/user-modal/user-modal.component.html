@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <h5 class="modal-title">{{'Add New User'}}</h5>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form #addForm="ngForm" (ngSubmit)="saveUser()">
+    <div class="form-group">
+      <label for="name">User Name</label>
+      <input type="text" [(ngModel)]="user.name" name="name" class="form-control" id="name" placeholder="John Doe" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">User Email</label>
+      <input type="email" [(ngModel)]="user.email" name="email" class="form-control" id="email" placeholder="email address" required>
+    </div>
+
+    <div class="form-group">
+      <label for="password">One Time Password</label>
+      <input type="password" [(ngModel)]="user.password" name="password" class="form-control" id="password" placeholder="OTP" required>
+    </div>
+
+    <div class="form-group">
+      <label for="role">User Role</label>
+      <select id="role" [(ngModel)]="user.type" name="type" class="form-control">
+        <!-- <option [value]="UserType.ADMIN">Admin</option> -->
+        <option [value]="UserType.TICKET_MANAGER">Ticket Manager</option>
+        <option [value]="UserType.USER">User</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="timestamp">Created Timestamp</label>
+      <input type="text" class="form-control" placeholder="24/08/2024" [value]="user.createdTime | date:'dd/MM/yyyy'" disabled>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('Cross click')">Close</button>
+      <button type="submit" class="btn btn-primary">{{'Register User'}}</button>
+    </div>
+  </form>
+</div>

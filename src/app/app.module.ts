@@ -18,9 +18,9 @@ import { CreateTicketModalComponent } from './create-ticket-modal/create-ticket-
 import { ProfileComponent } from './component/profile/profile.component';
 import { ManagerUserComponent } from './component/manage-user/manager-user.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ManageTicketComponent } from './component/manage-ticket/manage-ticket.component';
 import { ModalComponent } from './component/modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserModalComponent } from './component/user-modal/user-modal.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +34,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CreateTicketModalComponent,
     ProfileComponent,
     ManagerUserComponent,
-    ManageTicketComponent,
-    ModalComponent
+    ModalComponent,
+    UserModalComponent
   ],
   imports: [
     BrowserModule,

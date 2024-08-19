@@ -7,10 +7,10 @@ export interface Ticket {
   id: number;
   title: string;
   description: string;
-  status: TicketStatus;
-  assignedTo: User;
-  priority: TicketPriority;
+  status?: TicketStatus;
+  assignedTo?: User;
+  priority?: TicketPriority;
   createdTime: string;
-  closedTime?: string;
+  updatedTime?: string;
 
 }

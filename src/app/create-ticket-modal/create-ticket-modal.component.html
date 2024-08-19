@@ -1,0 +1,96 @@
+<!-- <div class="modal-dialog modal-sm modal-confirm">
+	<div class="modal-content">
+		<div class="modal-header flex-column">
+
+			<button (click)="modal.dismiss('Cross click')"
+				type="button"
+				class="btn-close"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+
+			<h4 class="modal-title w-100">Are you sure?</h4>
+		</div>
+		<div class="modal-body">
+			<p>
+				Do you really want to delete these records? This process cannot be undone.
+			</p>
+		</div>
+    <div class="modal-footer justify-content-center">
+			<button (click)="modal.dismiss('Cross click')"
+				type="button"
+				class="btn btn-secondary"
+				data-dismiss="modal">
+				Cancel
+			</button>
+			<button
+				type="button"
+				class="btn btn-danger">
+				Delete
+			</button>
+		</div>
+	</div>
+</div> -->
+
+
+<div class="modal-header">
+  <h5 class="modal-title">{{ isEdit ? 'Edit Ticket' : 'Create Ticket' }}</h5>
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form #addForm="ngForm" (ngSubmit)="saveTicket()">
+    <div class="form-group">
+      <label for="title">Ticket Title</label>
+      <input type="text" ngModel name="title" class="form-control" id="title" [value]="ticket.title" placeholder="Title" required>
+    </div>
+    <div class="form-group">
+      <label for="status">Ticket Status</label>
+      <!-- <select [(ngModel)]="ticket.status" name="status" class="form-control" id="status" required>
+        <option *ngFor="let status of ticketStatuses" [ngValue]="status">{{ status }}</option>
+      </select> -->
+      <input type="text" ngModel name="status" class="form-control" id="status" placeholder="PENDING" [value]="ticket.status || 'PENDING'" disabled>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea type="text" ngModel name="description" class="form-control" id="description" [value]="ticket.description" placeholder="Description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="user">Assign to Noc officer</label>
+      <select id="user" ngModel name="user" class="form-control">
+        <!-- <select [(ngModel)]="ticket.assignedTo" name="assignedTo" class="form-control" id="assignedTo">
+          <option *ngFor="let user of users" [ngValue]="user">{{ user.name }}</option>
+        </select> -->
+        <option>Robert Elinam Adzimahe</option>
+        <option>Richmond Essel</option>
+        <option>Gilbert Awuah</option>
+        <option>Noel Tubianosa</option>
+        <option>Romeo Jr Ong</option>
+      </select>
+   </div>
+   <div class="form-group">
+     <label for="priority">Ticket Priority</label>
+     <select id="priority" ngModel name="priority" class="form-control">
+      <!-- <select [(ngModel)]="ticket.priority" name="priority" class="form-control" id="priority">
+        <option *ngFor="let priority of priorities" [ngValue]="priority">{{ priority }}</option>
+      </select> -->
+      <option>A</option>
+      <option>B</option>
+      <option>C</option>
+     </select>
+  </div>
+  <div class="form-group">
+    <label for="createdTime">Created Timestamp</label>
+    <input type="text" [(ngModel)]="ticket.createdTime" name="createdTime" class="form-control" id="createdTime" [value]="ticket.createdTime | date:'short'" disabled>
+  </div>
+  <!-- <div class="form-group" *ngIf="isEdit">
+    <label for="updatedTime">Updated Timestamp</label>
+    <input type="text" [(ngModel)]="ticket.updatedTime" name="updatedTime" class="form-control" id="updatedTime" [value]="ticket.updatedTime | date:'short'" disabled>
+  </div> -->
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cross click')">Close</button>
+      <button type="submit" class="btn btn-primary" [disabled]="addForm.invalid">{{ isEdit ? 'Save Changes' : 'Create Ticket' }}</button>
+    </div>
+  </form>
+</div>

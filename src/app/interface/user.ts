@@ -7,5 +7,6 @@ export interface User {
   password: string;
   type: UserType;
   score: number;
+  createdTime: string;
 
 }

@@ -45,7 +45,7 @@ export class UserService {
   //   return this.http.get<UserScoreDTO[]>(`${this.baseUrl}/scores/range?startDate=${startDate}&endDate=${endDate}`);
   // }
 
-  registerUser(user: User, password2: string): Observable<User>{
-    return this.http.post<User>(`${this.apiUrl}/register/`, {user, password2});
+  registerUser(user: User): Observable<User>{
+    return this.http.post<User>(`${this.apiUrl}/register/`, {user});
   }
 }
