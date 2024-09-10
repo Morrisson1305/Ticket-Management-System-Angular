@@ -1,0 +1,56 @@
+
+<div class="login-form-bg h-100">
+  <div class="container h-100">
+      <div class="row justify-content-center h-100">
+          <div class="col-xl-6">
+              <div class="form-input-content">
+                  <div class="card login-form mb-0">
+                    <div class="card-body pt-5">
+                      <a class="text-center" > <h4>Sign Up</h4></a>
+                      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="mt-5 mb-5 login-input">
+
+                      <div class="form-group">
+                        <input type="text" id="name" formControlName="name" placeholder="Your Name"/>
+                          <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched" class="text-danger">
+                          Name is required (min 3 characters)
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <input type="email" id="email" formControlName="email" placeholder="Your Email"/>
+                        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger">
+                          Valid email is required
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <input type="password" id="pass" formControlName="password" placeholder="Password"/>
+                        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger">
+                          Password is required (min 6 characters)
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <input type="password" id="re_pass" formControlName="confirmPassword" placeholder="Repeat your password"/>
+                        <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched" class="text-danger">
+                          Passwords must match
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <input type="checkbox" id="agree-term" class="agree-term" />
+                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to all statements in the <a href="#" class="term-service">Terms of service</a></label>
+                      </div>
+                      <div class="form-group form-button">
+                        <input type="submit" id="signup" class="form-submit" value="Register" [disabled]="registerForm.invalid"/>
+                      </div>
+                    </form>
+                    <div class="form-group">
+                      <p>Already have an account? <a routerLink="/login" class="login-link">Sign in here</a></p>
+                  </div>
+
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+

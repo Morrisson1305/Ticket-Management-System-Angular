@@ -1,12 +1,12 @@
 import { UserType } from "./user-type";
 
 export interface User {
-  id: number;
+  id?: number;
   name: string;
   email: string;
   password: string;
   type: UserType;
-  score: number;
-  createdTime: string;
+  score?: number;
+  createdTime?: string;
 
 }

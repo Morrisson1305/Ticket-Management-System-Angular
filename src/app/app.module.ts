@@ -21,6 +21,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ModalComponent } from './component/modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserModalComponent } from './component/user-modal/user-modal.component';
+import { RegisterComponent } from './component/register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { UserModalComponent } from './component/user-modal/user-modal.component'
     ProfileComponent,
     ManagerUserComponent,
     ModalComponent,
-    UserModalComponent
+    UserModalComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { UserModalComponent } from './component/user-modal/user-modal.component'
     HttpClientModule,
     FormsModule,
     FontAwesomeModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [TicketService, UserService,
    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

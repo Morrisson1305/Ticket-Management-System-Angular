@@ -1,10 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { TicketService } from '../services/ticket.service';
-import { NgForm } from '@angular/forms';
 import { Ticket } from '../interface/ticket';
 import { TicketStatus } from '../interface/ticket-status';
-import { HttpErrorResponse } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-create-ticket-modal',
@@ -61,7 +60,6 @@ export class CreateTicketModalComponent implements OnInit{
       });
     }
   }
-
 
 
 

@@ -4,32 +4,43 @@ import { LoginRequest } from '../../interface/login-request';
 import { LoginResponse } from '../../interface/login-response';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { UserType } from '../../interface/user-type';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
 
   email: string = '';
   password: string = '';
   error: string = '';
-
+  isLoading: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
+    if (!this.email || !this.password) {
+      this.error = 'Email and password are required!';
+      Swal.fire({
+        title: 'Validation Error',
+        text: this.error,
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+      return;
+    }
+
+    this.isLoading = true;
     const request: LoginRequest = {
       email: this.email,
       password: this.password,
     };
 
     this.authService.login(request).subscribe({
-      next: (response: LoginResponse) => {
-        console.log('Login successful', response);
-        localStorage.setItem('currentUser', JSON.stringify(response));
-        this.authService.currentUserValue;
+      next: (response) => {
+        this.isLoading = false;
 
         Swal.fire({
           title: 'Success!',
@@ -38,14 +49,13 @@ export class LoginComponent {
           confirmButtonText: 'OK'
         });
 
-        if (response.role === 'ROLE_TICKET_MANAGER'){
-          this.router.navigate(['/admin/user']);
-        }else {
-          this.router.navigate(['/user-dashboard']);
-        }
+        const redirectRoute = response.role === UserType.TICKET_MANAGER ? '/admin/user' : '/user-dashboard';
+        this.router.navigate([redirectRoute]);
       },
       error: (err) => {
-        this.error = 'Try again or contact your system admin.';
+        this.isLoading = false;
+        console.error('Login error', err); // Log the actual error
+        this.error = err.error?.message || 'Login failed. Please try again.';
         Swal.fire({
           title: 'Login Failed',
           text: this.error,
@@ -53,9 +63,6 @@ export class LoginComponent {
           confirmButtonText: 'OK'
         });
       }
-    })
-
+    });
   }
-
-
 }

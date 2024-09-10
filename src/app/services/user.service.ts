@@ -9,10 +9,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+
   private apiUrl = `${environment.apiUrl}/admin`;
 
   constructor(private http: HttpClient) { }
-
 
 
   getAllUsers(): Observable<User[]>{

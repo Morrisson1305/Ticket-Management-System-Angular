@@ -1,5 +1,6 @@
 export interface LoginResponse {
   email: string;
   role: string;
-  message: string;
+  accessToken: string;
+  refreshToken: string;
 }
